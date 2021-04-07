@@ -1,0 +1,12 @@
+web/config/WebConfig.class
+web/model/Role.class
+web/model/User.class
+web/config/SecurityConfig.class
+web/Service/UserServiceImpl.class
+web/config/MySecurityInit.class
+web/DAO/UserDaoImpl.class
+web/config/DBconfig.class
+web/controller/UserController.class
+web/config/AppInit.class
+web/DAO/UserDao.class
+web/Service/UserService.class

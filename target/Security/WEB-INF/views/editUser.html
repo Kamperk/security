@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<body>
+<h2>Update User</h2>
+<form th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+    <table>
+        <tr>
+            <th><label for="name">Name</label></th>
+            <th><input type="text" th:field="*{name}" id="name"></th>
+        </tr>
+        <tr>
+            <th><label for="lastname">Lastname</label></th>
+            <th><input type="text" th:field="*{lastname}" id="lastname"></th>
+        </tr>
+        <tr>
+            <th><label for="job">Job</label></th>
+            <th><input type="text" th:field="*{job}" id="job"></th>
+        </tr>
+        <tr>
+            <th><input type="submit" value="Update"></th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
