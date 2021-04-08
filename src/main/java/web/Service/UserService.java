@@ -11,6 +11,7 @@ public interface UserService extends UserDetailsService {
     User getUser(long id);
     List<User> getAll();
     void editUser(User user);
-    boolean saveUser(User user);
+    void saveUser(User user);
     void removeUser(long id);
+    User findByUsername(String login);
 }

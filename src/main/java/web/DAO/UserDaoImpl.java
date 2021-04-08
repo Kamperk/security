@@ -1,5 +1,6 @@
 package web.DAO;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import web.model.User;
@@ -52,4 +53,7 @@ public class UserDaoImpl implements UserDao{
         return entityManager.createQuery("select u from User u", User.class).getResultList();
     }
 
+    public static void main(String[] args) {
+        System.out.println(new BCryptPasswordEncoder().encode("1234"));
+    }
 }
