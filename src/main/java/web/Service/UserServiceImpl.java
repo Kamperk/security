@@ -34,6 +34,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void editUser(User user) {
+        String crypto = new BCryptPasswordEncoder().encode(user.getPassword());
+        user.setPassword(crypto);
         userDao.editUser(user);
     }
 
