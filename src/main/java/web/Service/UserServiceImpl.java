@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -56,7 +57,6 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userDao.findByUsername(username);
@@ -66,5 +66,4 @@ public class UserServiceImpl implements UserService{
         }
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getAuthorities());
     }
-
 }
