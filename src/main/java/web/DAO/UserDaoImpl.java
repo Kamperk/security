@@ -18,12 +18,10 @@ public class UserDaoImpl implements UserDao{
     private EntityManager entityManager;
 
     @Override
-    @Transactional
     public User getUser(long id) {
         return entityManager.find(User.class, id);
     }
 
-    @Transactional
     public User findByUsername(String login){
         Query query = entityManager.createQuery("select u from User u where u.username = :login");
         query.setParameter("login", login);
@@ -31,29 +29,24 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    @Transactional
     public void editUser(User user) {
         entityManager.merge(user);
     }
 
     @Override
-    @Transactional
     public void saveUser(User user) {
         entityManager.persist(user);
     }
 
     @Override
-    @Transactional
     public void removeUser(long id) {
         entityManager.remove(getUser(id));
     }
+
     @Override
-    @Transactional
     public List<User> getAll() {
         return entityManager.createQuery("select u from User u", User.class).getResultList();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new BCryptPasswordEncoder().encode("1234"));
-    }
+
 }
